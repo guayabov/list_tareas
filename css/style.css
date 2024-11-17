@@ -36,18 +36,17 @@ input, select, textarea, button {
     display: flex;
     flex-direction: column;
     border-radius: 5px;
-    /* Añadir color de fondo translúcido según la prioridad */
 }
 .task-item.baja {
-    background-color: rgba(144, 238, 144, 0.3); /* Verde translúcido */
+    background-color: rgba(144, 238, 144, 0.3); 
 }
 
 .task-item.media {
-    background-color: rgba(255, 255, 102, 0.3); /* Amarillo translúcido */
+    background-color: rgba(255, 255, 102, 0.3); 
 }
 
 .task-item.alta {
-    background-color: rgba(255, 99, 71, 0.3); /* Rojo translúcido */
+    background-color: rgba(255, 99, 71, 0.3); 
 }
 
 .task-info {

@@ -4,7 +4,7 @@ const trashList = document.getElementById("trashList");
 const clearTrashButton = document.getElementById("clearTrashButton");
 
 function loadTrash() {
-    trashList.innerHTML = ""; // Limpiar la lista antes de cargar las tareas
+    trashList.innerHTML = ""; 
     const trash = JSON.parse(localStorage.getItem("trash")) || [];
     trash.forEach(task => {
         const li = document.createElement("li");
@@ -22,19 +22,18 @@ function loadTrash() {
     });
 }
 
-// Escuchar el mensaje para actualizar la Papelera
+
 window.addEventListener("updateTrash", (event) => {
     if (event.data && event.data.type === "updateTrash") {
-        loadTrash(); // Actualizar la lista de la Papelera automáticamente
+        loadTrash(); 
     }
 });
 
-// Limpiar la Papelera de reciclaje
 clearTrashButton.addEventListener("click", clearTrash);
 
 function clearTrash() {
     localStorage.removeItem("trash");
-    loadTrash(); // Actualizar automáticamente la lista
+    loadTrash(); 
 }
 
 function getPriorityClass(priority) {

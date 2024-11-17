@@ -114,22 +114,18 @@ function moveToTrash(taskId) {
     const taskToTrash = tasks.find(task => task.id === taskId);
 
     if (taskToTrash) {
-        // Cambiar el estado de la tarea a "Finalizada"
         taskToTrash.status = "Finalizada";
         taskToTrash.updatedAt = new Date().toISOString();
 
-        // Agregar la tarea a la Papelera
         let trash = JSON.parse(localStorage.getItem("trash")) || [];
         trash.push(taskToTrash);
         localStorage.setItem("trash", JSON.stringify(trash));
     }
 
-    // Eliminar la tarea del listado principal
     tasks = tasks.filter(task => task.id !== taskId);
     localStorage.setItem("tasks", JSON.stringify(tasks));
     updateTaskList();
 
-    // Enviar un mensaje para actualizar la Papelera
     window.postMessage({ type: "updateTrash" }, "*");
 }
 
